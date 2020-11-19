@@ -22,5 +22,11 @@ app.get('/', function (req, res) {
 
 // Return manifest file when requested through /manifest
 app.get('/manifest', (req, res) => {
+  // res.jsonp(path.join(__dirname, '../build', 'asset-manifest.json'));
   res.sendFile(path.join(__dirname, '../build', 'asset-manifest.json'), { headers: headerOptions });
+  // res.jsonp(path.join(__dirname, '../build', 'asset-manifest.json'));
+})
+
+app.get('/jsonp', (req, res) => {
+  res.jsonp({ name: 'dan' });
 })
